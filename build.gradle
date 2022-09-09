@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.9.RELEASE'
+    } // 전역변수 설정
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+} // 이 프로젝트의 플러그인 의존성 관리를 위한 설정 (인텔리제이의 플러그인 관리X)
+
+//자바, 스프링부트 사용하기 위한 필수 플러그인 4개 - 항상 추가
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' // 스프링부트의 의존성들을 관리해주는 플러그인 - 필수
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter() // 라이브러리 업로드를 간단하게 + mavenCentral에도 자동 업로드 - 최근에 많이 사용
+} // 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지 정함
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+} // 프로젝트 개발에 필요한 의존성들 선언
+
+//test {
+//    useJUnitPlatform()
+//}
