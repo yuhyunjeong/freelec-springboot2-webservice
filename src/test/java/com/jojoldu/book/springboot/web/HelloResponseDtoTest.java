@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.web;
 
+import com.jojoldu.book.springboot.web.dto.HelloResponseDto;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat; // Junit의 기본 assertThat이 아닌 assertj의 assertThat을 사용. assertj 역시 Junit에서 자동으로 라이브러리 등록을 해줌.
